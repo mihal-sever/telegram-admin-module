@@ -1,0 +1,39 @@
+{
+  "name": "telegram-admin-module",
+  "version": "0.1.0",
+  "description": "Admin module for Telegram bots built with Grammy and NestJS",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint . --ext .ts",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "admin",
+    "grammy",
+    "nestjs"
+  ],
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "@grammyjs/conversations": "^1.0.0",
+    "@nestjs/common": "^9.0.0 || ^10.0.0",
+    "grammy": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mihal-sever/telegram-admin-module.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mihal-sever/telegram-admin-module/issues"
+  },
+  "homepage": "https://github.com/mihal-sever/telegram-admin-module#readme"
+}
