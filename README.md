@@ -26,7 +26,7 @@ git submodule update --init --recursive
 Перед использованием модуля необходимо инициализировать его конфигурацию:
 
 ```typescript
-import { initAdminModule } from '@/bot/admin/admin.config';
+import { initAdminModule } from '@admin/admin.config';
 import { supabase } from '@/supabase/client';
 
 // Инициализация модуля с конфигурацией
@@ -95,7 +95,7 @@ import {
   makeAdminConversation,
   removeAdminConversation,
   listAdminsConversation
-} from '@/bot/admin/admin.conversations';
+} from '@admin/admin.conversations';
 
 // Создание бота
 const bot = new Bot(process.env.BOT_TOKEN);
@@ -114,12 +114,12 @@ bot.use(createConversation(listAdminsConversation, "listAdmins"));
 
 ```typescript
 import { Composer } from 'grammy';
-import { createAdminMiddleware } from '@/bot/admin/adapters/grammy.adapter';
+import { createAdminMiddleware } from '@admin/adapters/grammy.adapter';
 import { 
   handleMakeAdminCommand,
   handleRemoveAdminCommand,
   handleListAdminsCommand
-} from '@/bot/admin/commands';
+} from '@admin/commands';
 
 // Создание middleware для проверки прав администратора
 const adminMiddleware = createAdminMiddleware();

@@ -1,6 +1,6 @@
-import type { MyContext } from '@/types/context';
-import { AdminGuard } from '@/bot/admin/guards/admin.guard';
-import { AdminExceptionFilter } from '@/bot/admin/filters/admin-exception.filter';
+import type { AdminContext } from '@admin/types/context';
+import { AdminGuard } from '@admin/guards/admin.guard';
+import { AdminExceptionFilter } from '@admin/filters/admin-exception.filter';
 import { HttpException } from '@nestjs/common';
 
 /**
@@ -10,8 +10,8 @@ import { HttpException } from '@nestjs/common';
 export function createAdminMiddleware() {
   const adminGuard = new AdminGuard();
   const exceptionFilter = new AdminExceptionFilter();
-  
-  return async (ctx: MyContext, next: () => Promise<void>) => {
+
+  return async (ctx: AdminContext, next: () => Promise<void>) => {
     try {
       // Создаем mock ExecutionContext для NestJS
       const executionContext = {
@@ -22,7 +22,7 @@ export function createAdminMiddleware() {
         getClass: () => ({}),
         getHandler: () => ({}),
       };
-      
+
       if (await adminGuard.canActivate(executionContext as any)) {
         return next();
       }
